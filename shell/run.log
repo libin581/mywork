@@ -1,0 +1,169 @@
+delete local file
+uncompress file
+get file
+main fun
+delete /data01/data/decode/de_wlan_wt
+------------------------------------------------>
+delete /data01/data/decode/de_wlan_wl
+------------------------------------------------>
+delete /data01/data/decode/de_wlan_local
+------------------------------------------------>
+delete /data01/data/decode/de_wlan_iw
+------------------------------------------------>
+delete /data01/data/decode/de_wlan_kjh
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_pgw_nokia
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_cngd
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_cngd_lte
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_tap3
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_tap3_lte
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_iot_cngo
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_iot_cngd
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_gmrd
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_g3nb
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_idc_ips
+------------------------------------------------>
+delete /data01/data/decode/de_gprs_sgsn_eri
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_infox_lan
+------------------------------------------------>
+delete /data01/data/decode/de_ggprs_infox_card
+------------------------------------------------>
+delete /data01/data/decode/de_gprs_sgsn_nokia
+------------------------------------------------>
+delete /data01/data/decode/de_gprs_sgsn_huawei
+------------------------------------------------>
+delete /data01/data/decode/de_gprs_sgw_huawei
+------------------------------------------------>
+delete /data01/data/decode/de_gprs_sgw_nokia
+------------------------------------------------>
+delete /data01/data/decode/de_gprs_gg
+------------------------------------------------>
+------------------------------------------------>
+---->ftp wlan_wt.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp wlan.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp wlan_local.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp wlan_gric.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp wlan_kjh.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp nokia_LTE_pgw.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_cngd_down.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_cngd_down_lte.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_tap3.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_tap3_lte.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp ggprs_iot_cngo.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp ggprs_iot_cngd.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gmrd.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_g3nb.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp idc_ips.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp ericsson_sgsn.dcd
+Interactive mode off.
+Bad directory components
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_infox_lan.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gprs_infox_card.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp nokia_sgsn.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp huawei_sgsn.dcd
+Interactive mode off.
+Bad directory components
+---->uncompress
+------------------------------------------------>
+
+---->ftp huawei_LTE_sgw.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp nokia_LTE_sgw.dcd
+Interactive mode off.
+---->uncompress
+------------------------------------------------>
+
+---->ftp gg_gprs.dcd
+Interactive mode off.
+Bad directory components
+---->uncompress
+------------------------------------------------>
+

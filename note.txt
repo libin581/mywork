@@ -1,0 +1,12 @@
+Note:
+
+complile:
+g++ -c fileName.cpp
+
+link:
+g++ -o exefile file1.o file2.o
+
+if it's "C" file, use gcc instead g++
+
+
+

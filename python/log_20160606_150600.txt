@@ -1,0 +1,4 @@
+------UT for floatToU32---------
+0xC237F5C3
+0xC237F5C3
+--------------floatToU32 PASS--------------
