@@ -1,5 +1,5 @@
 Note:
-
+ 
 complile:
 g++ -c fileName.cpp
 
