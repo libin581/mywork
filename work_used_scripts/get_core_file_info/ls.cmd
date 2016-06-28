@@ -1,0 +1,1 @@
+find ./config -type f -name \'*core*\' -exec ls -l --time-style '+%Y%m%d%H%M%S' {} \\; 

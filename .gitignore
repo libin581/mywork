@@ -1,1 +1,4 @@
 work_used_scripts/get_core_file_info/get_core_*.txt
+work_used_scripts/get_core_file_info/his/*.txt
+work_used_scripts/get_core_file_info/log/*ls.cmd*
+work_used_scripts/get_core_file_info/realsh/*ls.cmd.sh
