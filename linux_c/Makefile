@@ -2,6 +2,7 @@
 
 CFLAGS=  #-O2
 lib=/usr/local/lib
+INCLUDE = .
 
 binfile=alarm callProcess client1 server1 ctrlc1 ctrlc2 \
 epollEcho fork1 fork2 fork-wait hello program\
@@ -17,152 +18,158 @@ objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
 bill.o program.o hello.o
 
-alarm:
-	gcc $(CFLAGS) -o alarm ./alarm.c
 
-callProcess:
-	gcc $(CFLAGS) -o callProcess ./callProcess.c
+alarm:alarm.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o alarm -c alarm.c
 
-client1:
-	gcc $(CFLAGS) -o client1 ./client1.c
+callProcess:callProcess.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o callProcess -c callProcess.c
 
-server1:
-	gcc $(CFLAGS) -o server1 ./server1.c
+client1:client1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o client1 -c client1.c
 
-ctrlc1:
-	gcc $(CFLAGS) -o ctrlc1 ./ctrlc1.c
+server1:server1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o server1 -c server1.c
 
-ctrlc2:
-	gcc $(CFLAGS) -o ctrlc2 ./ctrlc2.c
-	
-daemonTest:
-	gcc $(CFLAGS) -c ./daemon.c
-	gcc $(CFLAGS) -c ./daemonTest.c
-	gcc $(CFLAGS) -o daemonTest daemon.o daemonTest.o
+ctrlc1:ctrlc1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o ctrlc1 -c ctrlc1.c
+
+ctrlc2:ctrlc2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o ctrlc2 -c ctrlc2.c
+
+daemon.o:daemon.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o daemon.o -c daemon.c
+daemonTest.o:daemonTest.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o daemonTest.o -c daemonTest.c
+daemonTest:daemonTest.o daemon.o
+	gcc -I$(INCLUDE) $(CFLAGS) -o daemonTest daemon.o daemonTest.o
     
-epollEcho:
-	g++ $(CFLAGS) -o epollEcho ./epollEcho.cpp
+epollEcho:epollEcho.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o epollEcho -c epollEcho.cpp
 
-fork1:
-	gcc $(CFLAGS) -o fork1 ./fork1.c
+fork1:fork1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o fork1 -c fork1.c
 
-fork2:
-	gcc $(CFLAGS) -o fork2 ./fork2.c
+fork2:fork2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o fork2 -c fork2.c
 
-fork-wait:
-	gcc $(CFLAGS) -o fork-wait ./fork-wait.c
+fork-wait:fork-wait.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o fork-wait -c fork-wait.c
 
-hello:
-	gcc $(CFLAGS) -o hello ./hello.c
+hello:hello.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o hello -c hello.c
 
-helloworld:
-	gcc $(CFLAGS) -o helloworld ./helloworld.c
+helloworld:helloworld
+	gcc -I$(INCLUDE) $(CFLAGS) -o helloworld -c helloworld.c
 
-lock1:
-	gcc $(CFLAGS) -o lock1 ./lock1.c
+lock1:lock1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o lock1 -c lock1.c
 
-lock2:
-	gcc $(CFLAGS) -o lock2 ./lock2.c
+lock2:lock2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o lock2 -c lock2.c
 
-lock3:
-	gcc $(CFLAGS) -o lock3 ./lock3.c
+lock3:lock3.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o lock3 -c lock3.c
 
-msg1:
-	gcc $(CFLAGS) -o msg1 ./msg1.c
+msg1:msg1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o msg1 -c msg1.c
 
-msg2:
-	gcc $(CFLAGS) -o msg2 ./msg2.c
+msg2:msg2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o msg2 -c msg2.c
 
-pipe1:
-	gcc $(CFLAGS) -o pipe1 ./pipe1.c
+pipe1:pipe1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o pipe1 -c pipe1.c
 
-pipe2:
-	gcc $(CFLAGS) -o pipe2 ./pipe2.c
+pipe2:pipe2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o pipe2 -c pipe2.c
       
-pipe3:
-	gcc $(CFLAGS) -o pipe3 ./pipe3.c
+pipe3:pipe3.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o pipe3 -c pipe3.c
 
-pipe4:
-	gcc $(CFLAGS) -o pipe4 ./pipe4.c
+pipe4:pipe4.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o pipe4 -c pipe4.c
 
-pexec:
-	gcc $(CFLAGS) -o pexec ./pexec.c
+pexec:pexec.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o pexec -c pexec.c
 
-pollEcho:
-	g++ $(CFLAGS) -o pollEcho ./pollEcho.cpp
+pollEcho:pollEcho.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o pollEcho -c pollEcho.cpp
       
-popen1:
-	gcc $(CFLAGS) -o popen1 ./popen1.c
+popen1:popen1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o popen1 -c popen1.c
       
-popen2:
-	gcc $(CFLAGS) -o popen2 ./popen2.c
-      
-program:
-	gcc $(CFLAGS) -c ./bill.c
-	gcc $(CFLAGS) -c ./fred.c
-	gcc $(CFLAGS) -c ./program.c
-	gcc $(CFLAGS) -o program program.o bill.o fred.o
+popen2:popen2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o popen2 -c popen2.c
+ 
+bill.o:bill.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o bill.o -c bill.c
+fred.o:fred.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o fred.o -c fred.c
+program.o:program.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o program.o -c program.c
+program:bill.o fred.o program.o
+	gcc -I$(INCLUDE) $(CFLAGS) -o program program.o bill.o fred.o
 
-printTest1:
-	g++ $(CFLAGS) -o printTest1 ./printTest.cpp
+printTest1:printTest.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o printTest1 -c printTest.cpp
 
-printTest2:
-	gcc $(CFLAGS) -o printTest2 ./printTest.c
+printTest2:printTest.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o printTest2 printTest.c
 
-sem1:
-	gcc $(CFLAGS) -o sem1 ./sem1.c  
+sem1:sem1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o sem1 -c sem1.c  
 
-shm1:
-	gcc $(CFLAGS) -o shm1 ./shm1.c  
+shm1:shm1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o shm1 -c shm1.c  
 
-shm2:
-	gcc $(CFLAGS) -o shm2 ./shm2.c  
+shm2:shm2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o shm2 -c shm2.c  
   
-simpleEcho:
-	g++ $(CFLAGS) -o simpleEcho ./simpleEcho.cpp    
+simpleEcho:simpleEcho.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o simpleEcho -c simpleEcho.cpp    
     
-simple_write:
-	gcc $(CFLAGS) -o simple_write ./simple_write.c  
+simple_write:simple_write.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o simple_write -c simple_write.c  
 
-system1:
-	gcc $(CFLAGS) -o system1 ./system1.c
+system1:system1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o system1 -c system1.c
 
-thread1:
-	gcc $(CFLAGS) -o thread1 ./thread1.c -lpthread
+thread1:thread1.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o thread1 -c thread1.c -lpthread
 
-thread2:
-	gcc $(CFLAGS) -o thread2 ./thread2.c -lpthread
+thread2:thread2.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o thread2 -c thread2.c -lpthread
 
-thread3:
-	gcc $(CFLAGS) -o thread3 ./thread3.c -lpthread
+thread3:thread3.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o thread3 -c thread3.c -lpthread
 
-thread4:
-	gcc $(CFLAGS) -o thread4 ./thread4.c -lpthread
+thread4:thread4.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o thread4 -c thread4.c -lpthread
 
-time2asc:
-	g++ $(CFLAGS) -o time2asc ./time2asc.cpp
+time2asc:time2asc.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o time2asc -c time2asc.cpp
 
-upper:
-	gcc $(CFLAGS) -o upper ./upper.c
+upper:upper.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o upper -c upper.c
 
-useupper:
-	gcc $(CFLAGS) -o useupper ./useupper.c
+useupper:useupper.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o useupper -c useupper.c
 
-simple_read:
-	gcc $(CFLAGS) -o simple_read ./simple_read.c
+simple_read:simple_read.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o simple_read -c simple_read.c
 
-copy_system:
-	gcc $(CFLAGS) -o copy_system ./copy_system.c
+copy_system:copy_system.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o copy_system -c copy_system.c
 
-copy_block:
-	gcc $(CFLAGS) -o copy_block ./copy_block.c
+copy_block:copy_block.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o copy_block -c copy_block.c
 
-copy_stdio:
-	gcc $(CFLAGS) -o copy_stdio ./copy_stdio.c
+copy_stdio:copy_stdio.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o copy_stdio -c copy_stdio.c
 
 all:
 	make $(binfile)
 
 .PHONY: clean
 clean:
-	-rm -f $(binfile) $(objects)
+	-rm -f $(binfile) $(objects) 
