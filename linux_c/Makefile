@@ -14,7 +14,8 @@ sem1  shm1 shm2 simpleEcho simple_write \
 system1 thread1 thread2 thread3 thread4 \
 daemonTest lock3 printTest1 printTest2 time2asc\
 upper useupper simple_read copy_system\
-copy_block copy_stdio boost_lambda boost_regex
+copy_block copy_stdio boost_lambda boost_regex\
+boost_format boost_minmax
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
@@ -174,6 +175,12 @@ boost_lambda:boost_lambda.cpp
 
 boost_regex:boost_regex.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_regex boost_regex.cpp -L$(LIB) -lboost_regex
+
+boost_format:boost_format.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_format boost_format.cpp 
+
+boost_minmax:boost_minmax.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_minmax boost_minmax.cpp 
 
 all:
 	make $(binfile)
