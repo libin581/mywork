@@ -19,7 +19,7 @@ int main()
 	cout<<strlen(str)<<endl;
 	string str2=str;
 
-	printf("%s,%d\n",str2.c_str(),sizeof(str2.c_str()));
+	printf("%s,%d,%d\n",str2.c_str(),sizeof(str2.c_str()), str2.length());
 
     string::iterator iter=str2.begin();
 	while(iter!=str2.end())
