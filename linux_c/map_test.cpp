@@ -18,6 +18,8 @@ int main()
 	if (!ret.second)
 	   ret.first->second += 6;
 
+    word_count.insert(make_pair("sdf",10));
+   
 	for (map_it=word_count.begin();map_it!=word_count.end();map_it++)
 	    cout<<map_it->first<<"   "<<map_it->second<<endl;
     

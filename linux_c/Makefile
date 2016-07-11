@@ -14,8 +14,10 @@ sem1  shm1 shm2 simpleEcho simple_write \
 system1 thread1 thread2 thread3 thread4 \
 daemonTest lock3 printTest1 printTest2 time2asc\
 upper useupper simple_read copy_system\
+time2ll time2loc\
 copy_block copy_stdio boost_lambda boost_regex\
-boost_format boost_minmax
+boost_format boost_minmax string_test\
+map_test algorithm_test
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
@@ -169,6 +171,21 @@ copy_block:copy_block.c
 
 copy_stdio:copy_stdio.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o copy_stdio  copy_stdio.c
+
+string_test:string_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o string_test string_test.cpp
+
+time2ll:time2ll.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o time2ll time2ll.c
+
+time2loc:time2loc.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o time2loc time2loc.c
+
+map_test:map_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o map_test map_test.cpp
+
+algorithm_test:algorithm_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o algorithm_test algorithm_test.cpp
 
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp
