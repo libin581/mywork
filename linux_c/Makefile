@@ -17,7 +17,7 @@ upper useupper simple_read copy_system\
 time2ll time2loc\
 copy_block copy_stdio boost_lambda boost_regex\
 boost_format boost_minmax string_test\
-map_test algorithm_test
+map_test algorithm_test sem1 sem1_compare
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
@@ -124,11 +124,8 @@ printTest2:printTest.c
 sem1:sem1.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o sem1  sem1.c  
 
-shm1:shm1.c
-	gcc -I$(INCLUDE) $(CFLAGS) -o shm1  shm1.c  
-
-shm2:shm2.c
-	gcc -I$(INCLUDE) $(CFLAGS) -o shm2  shm2.c  
+sem1_compare:sem1_compare.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o sem1_compare  sem1_compare.c  
   
 simpleEcho:simpleEcho.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o simpleEcho  simpleEcho.cpp    
@@ -186,6 +183,9 @@ map_test:map_test.cpp
 
 algorithm_test:algorithm_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o algorithm_test algorithm_test.cpp
+
+sem1:sem1.c semun.h
+	gcc -I$(INCLUDE) $(CFLAGS) -o sem1 sem1.c
 
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp

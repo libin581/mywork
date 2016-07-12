@@ -1,3 +1,5 @@
+//usage: ./sem1 0 & ./sem1
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
