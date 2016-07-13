@@ -36,7 +36,7 @@ int main()
 		}
 		printf("You wrote: %s", some_data.some_text);
 		if (strncmp(some_data.some_text, "end", 3) == 0)
-	        {
+	    {
 			running = 0;
 		}	
 
