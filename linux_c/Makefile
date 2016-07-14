@@ -17,7 +17,8 @@ upper useupper simple_read copy_system\
 time2ll time2loc\
 copy_block copy_stdio boost_lambda boost_regex\
 boost_format boost_minmax string_test\
-map_test algorithm_test sem1 sem1_compare
+map_test algorithm_test sem1 sem1_compare\
+sigchld print-env print-pid set_test
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
@@ -121,8 +122,8 @@ printTest1:printTest.cpp
 printTest2:printTest.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o printTest2 printTest.c
 
-sem1:sem1.c
-	gcc -I$(INCLUDE) $(CFLAGS) -o sem1  sem1.c  
+sem1:sem1.c semun.h
+	gcc -I$(INCLUDE) $(CFLAGS) -o sem1 sem1.c
 
 sem1_compare:sem1_compare.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o sem1_compare  sem1_compare.c  
@@ -184,8 +185,17 @@ map_test:map_test.cpp
 algorithm_test:algorithm_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o algorithm_test algorithm_test.cpp
 
-sem1:sem1.c semun.h
-	gcc -I$(INCLUDE) $(CFLAGS) -o sem1 sem1.c
+sigchld: sigchld.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o sigchld sigchld.c
+
+set_test: set_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o set_test set_test.cpp
+
+print-env: print-env.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o print-env print-env.c
+
+print-pid: print-pid.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o print-pid print-pid.c
 
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp
