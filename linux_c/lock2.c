@@ -1,3 +1,5 @@
+//usage ./lock2 & ./lock2
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>

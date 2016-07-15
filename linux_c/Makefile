@@ -14,11 +14,13 @@ sem1  shm1 shm2 simpleEcho simple_write \
 system1 thread1 thread2 thread3 thread4 \
 daemonTest lock3 printTest1 printTest2 time2asc\
 upper useupper simple_read copy_system\
-time2ll time2loc\
+time2ll time2loc lock4 lock5\
 copy_block copy_stdio boost_lambda boost_regex\
 boost_format boost_minmax string_test\
 map_test algorithm_test sem1 sem1_compare\
-sigchld print-env print-pid set_test
+sigchld print-env print-pid set_test\
+boost_thread_simple boost_thread_mutex\
+boost_thread_mutex_condition boost_thread_specific_ptr
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
@@ -76,6 +78,12 @@ lock2:lock2.c
 
 lock3:lock3.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o lock3  lock3.c
+
+lock4:lock4.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o lock4  lock4.c
+
+lock5:lock5.c
+	gcc -I$(INCLUDE) $(CFLAGS) -o lock5  lock5.c
 
 msg1:msg1.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o msg1  msg1.c
@@ -208,6 +216,19 @@ boost_format:boost_format.cpp
 
 boost_minmax:boost_minmax.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_minmax boost_minmax.cpp 
+
+boost_thread_simple:boost_thread_simple.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_thread_simple boost_thread_simple.cpp -L$(LIB) -lboost_system -lboost_thread
+
+boost_thread_mutex:boost_thread_mutex.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_thread_mutex boost_thread_mutex.cpp -L$(LIB) -lboost_system -lboost_thread
+
+boost_thread_mutex_condition:boost_thread_mutex_condition.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_thread_mutex_condition boost_thread_mutex_condition.cpp -L$(LIB) -lboost_system -lboost_thread
+
+boost_thread_specific_ptr:boost_thread_specific_ptr.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_thread_specific_ptr boost_thread_specific_ptr.cpp -L$(LIB) -lboost_system -lboost_thread
+
 
 all:
 	make $(binfile)

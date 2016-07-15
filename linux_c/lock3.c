@@ -1,3 +1,5 @@
+//./lock3 & ./lock4
+//./lock3 & ./lock5
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
