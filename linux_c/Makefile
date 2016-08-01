@@ -7,7 +7,7 @@ INCLUDE = .:${BOOST_ROOT}
 LIB = ${LD_LIBRARY_PATH}
 
 binfile=alarm callProcess client1 server1 ctrlc1 ctrlc2 \
-epollEcho fork1 fork2 fork-wait hello program\
+epollEcho fork1 fork2 hello program\
 lock1 lock2 msg1 msg2 pexec \
 pipe1 pipe2 pipe3 pipe4 pollEcho popen1 popen2 \
 sem1  shm1 shm2 simpleEcho simple_write \
@@ -19,12 +19,13 @@ copy_block copy_stdio boost_lambda boost_regex\
 boost_format boost_minmax string_test\
 map_test algorithm_test sem1 sem1_compare\
 sigchld print-env print-pid set_test\
+template_test thread_pool_test\
 boost_thread_simple boost_thread_mutex\
 boost_thread_mutex_condition boost_thread_specific_ptr
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
-bill.o program.o hello.o a.out
+bill.o program.o hello.o a.out thread_pool_test.o thread_pool.o
 
 
 alarm:alarm.c
@@ -60,9 +61,6 @@ fork1:fork1.c
 
 fork2:fork2.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o fork2  fork2.c
-
-fork-wait:fork-wait.c
-	gcc -I$(INCLUDE) $(CFLAGS) -o fork-wait  fork-wait.c
 
 hello:hello.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o hello  hello.c
@@ -205,6 +203,9 @@ print-env: print-env.c
 print-pid: print-pid.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o print-pid print-pid.c
 
+template_test: template_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o template_test template_test.cpp
+
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp
 
@@ -229,6 +230,12 @@ boost_thread_mutex_condition:boost_thread_mutex_condition.cpp
 boost_thread_specific_ptr:boost_thread_specific_ptr.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_thread_specific_ptr boost_thread_specific_ptr.cpp -L$(LIB) -lboost_system -lboost_thread
 
+thread_pool.o:thread_pool.cpp thread_pool.h
+	g++ -I$(INCLUDE) $(CFLAGS) -o thread_pool.o -c thread_pool.cpp 
+thread_pool_test.o:thread_pool_test.cpp thread_pool.h
+	g++ -I$(INCLUDE) $(CFLAGS) -o thread_pool_test.o -c thread_pool_test.cpp 
+thread_pool_test:thread_pool_test.o thread_pool.o
+	g++ -I$(INCLUDE) $(CFLAGS) -o thread_pool_test thread_pool_test.o thread_pool.o -lpthread
 
 all:
 	make $(binfile)
