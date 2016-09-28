@@ -1,5 +1,7 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
+# 目前该脚本只能检查，不能自动完成filed name的编号
+# asn1格式不能检查
 
 import sys
 import os
