@@ -15,6 +15,7 @@ system1 thread1 thread2 thread3 thread4 \
 daemonTest lock3 printTest1 printTest2 time2asc\
 upper useupper simple_read copy_system\
 time2ll time2loc lock4 lock5\
+class_duotai_test class_friend\
 copy_block copy_stdio boost_lambda boost_regex\
 boost_format boost_minmax string_test\
 map_test algorithm_test sem1 sem1_compare\
@@ -205,6 +206,12 @@ print-pid: print-pid.c
 
 template_test: template_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o template_test template_test.cpp
+
+class_duotai_test: class_duotai_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o class_duotai_test class_duotai_test.cpp
+
+class_friend: class_friend.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o class_friend class_friend.cpp
 
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp
