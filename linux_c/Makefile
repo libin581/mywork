@@ -270,7 +270,11 @@ thread_pool_test:thread_pool_test.o thread_pool.o
 
 all:
 	make $(binfile)
+	cd ./glog_test && make all
+	cd ..
 
 .PHONY: clean
 clean:
 	-rm -f $(binfile) $(objects) 
+	cd ./glog_test && make clean
+	cd ..
