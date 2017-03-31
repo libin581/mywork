@@ -23,7 +23,7 @@ sigchld print-env print-pid set_test\
 template_test thread_pool_test\
 boost_thread_simple boost_thread_mutex\
 boost_thread_mutex_condition boost_thread_specific_ptr\
-regex_test ofstream_test boost_shared_ptr\
+regex_test ofstream_test boost_shared_ptr boost_pool\
 boost_function boost_function_bind boost_signal_slot
 
 
