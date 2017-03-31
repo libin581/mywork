@@ -104,11 +104,21 @@ int main()
     cout<<str6<<endl;
 
 
-    char ServiceUsage[] = "2000000002|1357|6144|6144|0";
+    //char ServiceUsage[] = "2000000002|1357|6144|6144|0";
+    char ServiceUsage[] = "2000000001|3|99|925|0;2000000009|3|465|1583|0;1030000020|3|546|478|0";
+    char *pServiceUsage = ServiceUsage;
+    while(*pServiceUsage != '\0'){
+        if (*pServiceUsage == ';'){
+            *pServiceUsage = '|';
+        }
+        pServiceUsage++;
+    }   
+
     string strServiceUsage = ServiceUsage;
     string strdelim = "|";
     vector<string> strParts;
     split(strServiceUsage, strdelim, &strParts);
+	cout<<"tet"<<strParts[3]<<" "<<strParts[6]<<endl;
     cout<<endl;
     int partIdx=0;
     string strNewServiceUsage;
@@ -121,6 +131,7 @@ int main()
         partIdx++;
     }
     strNewServiceUsage=strNewServiceUsage.substr( 0 , strNewServiceUsage.size()-1);
+	cout<<ServiceUsage<<endl;
     cout<<strNewServiceUsage;
     cout<<endl;
 

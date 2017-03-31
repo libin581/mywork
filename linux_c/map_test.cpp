@@ -15,8 +15,12 @@ int main()
 
     pair<map<string, int>::iterator,bool> ret=
 	        word_count.insert(make_pair("sdf",6));
+	
 	if (!ret.second)
 	   ret.first->second += 6;
+    
+	cout<<"sdf"<<"    "<<word_count["sdf"]<<endl;
+	cout<<"sdft"<<"    "<<word_count["sdft"]<<endl;
 
     word_count.insert(make_pair("sdf",10));
    

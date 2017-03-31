@@ -1,4 +1,4 @@
-//在/home/ut/share/mywork/linux_c中，寻找*.txt文件
+//在/home/ut/study/mywork/linux_c中，寻找*.txt文件
 
 #include <stdio.h>
 #include <regex.h> 
@@ -25,7 +25,7 @@ int main(){
 		return -1;
 	}
     
-    string strInput = "/home/ut/share/mywork/linux_c";
+    string strInput = "/home/ut/study/mywork/linux_c";
 	printf("input_dir: %s\n", strInput.c_str());
 	DIR *dir = opendir(strInput.c_str());
 	if(!dir)

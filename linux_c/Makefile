@@ -23,11 +23,13 @@ sigchld print-env print-pid set_test\
 template_test thread_pool_test\
 boost_thread_simple boost_thread_mutex\
 boost_thread_mutex_condition boost_thread_specific_ptr\
-regex_test
+regex_test ofstream_test boost_shared_ptr\
+boost_function boost_function_bind boost_signal_slot
+
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
-bill.o program.o hello.o a.out thread_pool_test.o thread_pool.o
+bill.o program.o hello.o a.out thread_pool_test.o thread_pool.o 
 
 
 alarm:alarm.c
@@ -217,6 +219,9 @@ class_friend: class_friend.cpp
 regex_test: regex_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o regex_test regex_test.cpp
 
+ofstream_test:ofstream_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o ofstream_test ofstream_test.cpp
+
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp
 
@@ -240,6 +245,21 @@ boost_thread_mutex_condition:boost_thread_mutex_condition.cpp
 
 boost_thread_specific_ptr:boost_thread_specific_ptr.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_thread_specific_ptr boost_thread_specific_ptr.cpp -L$(LIB) -lboost_system -lboost_thread
+
+boost_shared_ptr:boost_shared_ptr.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_shared_ptr boost_shared_ptr.cpp 
+
+boost_function:boost_function.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_function boost_function.cpp 
+
+boost_function_bind:boost_function_bind.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_function_bind boost_function_bind.cpp 
+
+boost_pool:boost_pool.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_pool boost_pool.cpp 
+
+boost_signal_slot:boost_signal_slot.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o boost_signal_slot boost_signal_slot.cpp -l boost_signals 
 
 thread_pool.o:thread_pool.cpp thread_pool.h
 	g++ -I$(INCLUDE) $(CFLAGS) -o thread_pool.o -c thread_pool.cpp 
