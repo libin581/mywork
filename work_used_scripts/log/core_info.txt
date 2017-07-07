@@ -1,0 +1,7 @@
+HOST                DATE        TIME      POSITION
+10.10.12.146        7月4	15:23	./config/run/bill_notification_ts_2044/core.159707
+10.10.12.146        6月14	12:27	./config/run/rat_gsm_local_huawei_01_ts2_2815/core.150128
+10.10.12.146        6月8	17:18	./config/run/rat_gsm_local_huawei_01_ts2_2815/core.168282
+10.10.12.146        6月13	18:05	./config/run/rat_gsm_local_huawei_01_ts2_2815/core.108181
+10.10.12.146        6月19	10:48	./config/run/rat_ggprs_hg_ts2_10084378/core.187659
+################################################################################
