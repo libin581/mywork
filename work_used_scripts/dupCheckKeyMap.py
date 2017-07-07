@@ -16,6 +16,7 @@ dup_check_key_map={
 "RESERVE1":"t_sRESERVE1",
 "CALL_TYPE":"t_iCallType",
 "OPERATOR_CODE":"t_sBusinessCode",
+"BUSINESS_CODE":"t_sBusinessCode",
 "RECORD_TYPE":"t_sRecordType",
 "RECEIVE_ADDRESS":"t_sReceiveAddress",
 "SERVICE_PACKET_CODE":"t_sPkgBusinessCode",

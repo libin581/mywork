@@ -9,6 +9,7 @@ used for studying and testing
 #include <iostream>
 #include <stack>
 #include <vector>
+#include <string.h>
 
 using namespace std;
 
@@ -136,7 +137,7 @@ int main()
     cout<<endl;
 
     cout<<"--------------------------"<<endl;
-
+ 
     return 0;
 }
 

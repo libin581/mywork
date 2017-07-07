@@ -10,7 +10,7 @@ import pdb
 
 #从下面的路径中搜索并建立两个集合, 读值集合和打印集合
 #field_get_value_set, field_print_set
-dupCheckLuaPath="/home/ut/work/openbilling60_cmcc/mediation/dupcheck/lua"
+dupCheckLuaPath="/home/ut/work/ob_dev/openbilling60_cmcc/mediation/dupcheck/lua"
 
 lua_file_pat=re.compile(r"\w+\.lua")
 

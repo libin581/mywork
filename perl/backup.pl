@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-$bakPath = "/home/ut/share/";
+$bakPath = "/home/ut/study/";
 $bakfile = "back.tar";
 $bakfile = "$bakPath" . "$bakfile";
 
