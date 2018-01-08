@@ -99,7 +99,7 @@ int main(){
     char strMatch[20];
     char errbuf[1024];
     
-    const char * srcString1 = "M,20170303121035,audio 44016  RTP/AVP  8  101";
+/*    const char * srcString1 = "M,20170303121035,audio 44016  RTP/AVP  8  101";
 
     const char* patternPort = "[0-9]+"; 
     if ( regcomp(&rePort, patternPort, REG_EXTENDED ) != 0 ){
@@ -236,5 +236,40 @@ int main(){
         printf("Inactive found\n");
         return 0;
     }
+    */
+    //===========================================
+    printf("sdfsad");
+    string strOrigFile = "absj20170708_sdf";
+    const char* patternYYYYMMDD = "[0-9]{8}"; 
+    regex_t reYYYYMMDD;
+    if ( regcomp(&reYYYYMMDD, patternYYYYMMDD, REG_EXTENDED ) != 0 ){
+        printf("regcomp() error!, pattern:%s", patternYYYYMMDD);
+        //xdrRecord.insert_field(fieldStartTime, "0" );
+        return 0;
+    }
+
+    regmatch_t matchYYYYMMDD[1];
+    //memset(errbuf[1024];
+    int err = regexec(&reYYYYMMDD, strOrigFile.c_str(), 1, matchYYYYMMDD, 0);
+    if(err == REG_NOMATCH){
+        //xdrRecord.insert_field(fieldVideoType, "0" );
+       return 0;
+    }
+    else if (err){
+        regerror(err,&reYYYYMMDD,errbuf,sizeof(errbuf));
+        printf("err:%s\n",errbuf);
+        return 0;            
+    }
+
+    //char strMatch[20];
+    unsigned len = matchYYYYMMDD[0].rm_eo - matchYYYYMMDD[0].rm_so;
+    strncpy(strMatch, strOrigFile.c_str() + matchYYYYMMDD[0].rm_so, len);
+    strMatch[len]=0;
+
+    string strStartTime = strMatch;
+    strStartTime += "010101";
+
+    regfree(&reYYYYMMDD);
     
+    printf("starttime:%s\n", strStartTime.c_str());
 }
