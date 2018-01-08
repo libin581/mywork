@@ -1,0 +1,5 @@
+把convertFeeForUpc.py拷到某个目录下
+在该目录下建立一个新文件夹old
+把要转换的话单文件放在old文件夹
+执行python convertFeeForUpc.py
+新生成的话单放在new文件夹下
