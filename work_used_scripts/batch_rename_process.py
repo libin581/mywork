@@ -136,9 +136,8 @@ def querySql(process_name, cursor):
     logging.info( "Total:%d"%(count))
     logging.info( "=====================")
     for row in result:
-            row_list = list(row)
-            del row_list[4]
-            logging.info( row_list )
+        row_list = list(row)
+        logging.info( row_list )
 
     return count 
     
