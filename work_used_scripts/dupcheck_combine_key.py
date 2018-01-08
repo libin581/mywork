@@ -10,7 +10,7 @@ import pdb
 
 #从下面的路径中搜索并建立两个集合, 读值集合和打印集合
 #field_get_value_set, field_print_set
-dupCheckLuaPath="/home/ut/work/ob_dev/openbilling60_cmcc/mediation/dupcheck/lua"
+dupCheckLuaPath="/home/ut/work/src/ob_dev/openbilling60_cmcc/mediation/dupcheck/lua"
 
 lua_file_pat=re.compile(r"\w+\.lua")
 
@@ -136,7 +136,7 @@ for key in keys:
     key_var=dupCheckKeyMap.dup_check_key_map[key]
     if "t_sRESERVE1" == key_var or "t_sMocId" == key_var or \
        "t_iValidTimes" == key_var or "t_sAppNi" == key_var or "t_sDuration" == key_var or \
-       "t_sInTrunkid" == key_var:
+       "t_sInTrunkid" == key_var  or "t_sPartialNum" == key_var:
         continue 
 
     if not field_print_set.has_key(key_var):

@@ -32,6 +32,7 @@ dup_check_key_map={
 "REC_SEQ_NO":"t_sRecSegNo",
 "CUST_ID":"t_iCustId",
 "PARTIAL_ID":"t_sPartialId",
+"PARTIAL_NUM":"t_sPartialNum",
 "HOSTSPOT_ID":"t_sHostspotId",
 "BILL_FLAG":"t_iBillFlag",
 "OPER_CODE":"t_sBusinessCode",
@@ -44,4 +45,5 @@ dup_check_key_map={
 "OTHER_INFO2":"t_sOtherInfo2",
 "MSISDN":"t_sUserNumber",
 "SERVICE_KEY":"t_sServiceKey",
+"MSC_ID":"t_sMscId"
 }
