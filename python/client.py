@@ -5,7 +5,13 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
-sock.connect(('localhost', 8001));  
+
+try:
+    sock.connect(('localhost', 8001));  
+    print("connect succ!");
+except:
+    print("connect failed!")
+    sys.exit()
 
 my_str=''
 for i in range(1, len(sys.argv)):

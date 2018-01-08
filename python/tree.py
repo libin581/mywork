@@ -23,11 +23,11 @@ elif os.path.isdir(infile):
 
        print "    files: "
        for file in files:
-           print "         %s " % (file)
+           print "         %s " % (root+'/'+file)
 
        print "    folers: "
        for dir in dirs:
-           print "         %s " % (dir)
+           print "         %s " % (root+'/'+dir)
 else:
     print "%s is not valid!!!" %(infile)
        
