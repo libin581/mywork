@@ -23,13 +23,15 @@ sigchld print-env print-pid set_test\
 template_test thread_pool_test\
 boost_thread_simple boost_thread_mutex\
 boost_thread_mutex_condition boost_thread_specific_ptr\
-regex_test ofstream_test boost_shared_ptr boost_pool\
-boost_function boost_function_bind boost_signal_slot
+regex_test fstream_test boost_shared_ptr boost_pool\
+boost_function boost_function_bind boost_signal_slot\
+testStr2time
 
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
-bill.o program.o hello.o a.out thread_pool_test.o thread_pool.o 
+bill.o program.o hello.o a.out thread_pool_test.o thread_pool.o \
+testStr2time.o
 
 
 alarm:alarm.c
@@ -207,6 +209,9 @@ print-env: print-env.c
 print-pid: print-pid.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o print-pid print-pid.c
 
+testStr2time: testStr2time.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o testStr2time testStr2time.cpp
+
 template_test: template_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o template_test template_test.cpp
 
@@ -219,8 +224,8 @@ class_friend: class_friend.cpp
 regex_test: regex_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o regex_test regex_test.cpp
 
-ofstream_test:ofstream_test.cpp
-	g++ -I$(INCLUDE) $(CFLAGS) -o ofstream_test ofstream_test.cpp
+fstream_test:fstream_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o fstream_test fstream_test.cpp
 
 boost_lambda:boost_lambda.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o boost_lambda boost_lambda.cpp

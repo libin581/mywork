@@ -42,6 +42,23 @@ string&   replace_all(string&   str,const   string&   old_value,const   string& 
     return   str;
 }
 
+int str2str_PreRemoveZero(        const char* pIn, 
+                                char* pOut)
+{
+	if ( NULL == pOut )
+	{
+		return -1;;
+	}
+
+    const char * pTmp = pIn;
+    while(*pTmp == '0')
+    {
+        pTmp++;
+    }
+
+    strcpy(pOut, pTmp);
+}
+
 int main()
 {
     char str[10];
@@ -137,7 +154,42 @@ int main()
     cout<<endl;
 
     cout<<"--------------------------"<<endl;
+
+    string strtest;
+	if (strtest.empty()){
+	cout<<"strtest is empty"<<endl;
+	}
+
+   char s[] = "a,b*c,d";
+   const char *sep = ",*"; //可按多个字符来分割
+   char *p;
+   p = strtok(s, sep);
+   while(p){
+       printf("%s ", p);
+       p = strtok(NULL, sep);
+   }
+   printf("\n");
+
+   char aa[] = "ab";
+   printf("atoi(%s) = %d\n", aa, atoi(aa));
  
+   char bb[] = "00123";
+   long long lltmp;
+   sscanf(bb, "%lld",&lltmp); 
+   printf("atoll(%s) = %lld\n", bb, lltmp);
+
+   cout<<"=================="<<endl;
+   
+   char cc[10]="00012345";
+   char dd[10];
+   str2str_PreRemoveZero(cc, dd);
+   printf("%s-->%s\n\n", cc, dd);
+   
+   char ee[10]="1234";
+   char ff[10];
+   str2str_PreRemoveZero(ee, ff);
+   printf("%s-->%s\n\n", ee, ff);
+   
     return 0;
 }
 

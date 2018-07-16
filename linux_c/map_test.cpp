@@ -13,6 +13,15 @@ int main()
 	for (;map_it!=word_count.end();map_it++)
 	    cout<<map_it->first<<"   "<<map_it->second<<endl;
 
+    cout<<"-----------------"<<endl;
+	map<string,string> aa_test;
+	string strT = aa_test["sdla"];
+	if (strT.empty())
+    	cout<<"strT is empty"<<endl;
+	if (aa_test.count("a") == 0)
+    	cout<<"aa_test has no key \"a\" "<<endl;
+    cout<<"-----------------"<<endl;
+
     pair<map<string, int>::iterator,bool> ret=
 	        word_count.insert(make_pair("sdf",6));
 	

@@ -34,6 +34,43 @@ T Smemory<T>::mget( )//定义成员函数mget()，函数的返回类型为T，�
     return data[count];
 }
 
+//=========get from tap3 code begin==========
+
+typedef struct OperInfo_s{
+    int tenant_id;
+} OperInfo;
+
+class LoadOperInfo{
+public:
+	LoadOperInfo()
+	{
+	}
+	void operator () (OperInfo& oper_info); //重载()
+
+};
+
+void LoadOperInfo::operator () (OperInfo& oper_info)
+{
+	cout<<"oper_info.tenant_id = "<<oper_info.tenant_id<<endl;
+}
+
+void process(OperInfo oper_info)
+{
+    cout<<"oper_info.tenant_id = "<<oper_info.tenant_id<<endl;
+}
+
+template <typename Handler>
+int foreach_OperInfo(Handler handler)
+{	
+    OperInfo oper_info;
+    oper_info.tenant_id = 102;
+	handler(oper_info);
+
+	return 0;
+}
+//=========get from tap3 code end==========
+
+
 int main( )
 {
     int a=3, b=5;
@@ -54,5 +91,11 @@ int main( )
     for(i=0;i<8;i++)
        cout<<mo2.mget( ); //调用成员函数mget()
 	cout<<endl;
+    
+    
+    //========
+	//LoadOperInfo()新建一个类对象,适用于传参数的情况
+    foreach_OperInfo(LoadOperInfo()); //一个类来处理一个结构，而不是一个函数
+    foreach_OperInfo(process);//用一个函数来处理结构
 }
 

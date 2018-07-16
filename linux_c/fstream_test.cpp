@@ -6,7 +6,7 @@ using namespace std;
 
 ofstream outfile;
 
-char pTestFile[] = "/home/ut/study/mywork/linux_c/ofstream.txt";
+char pTestFile[] = "/home/ut/study/mywork/linux_c/fstream.txt";
 
 void writeLog()
 {
@@ -36,10 +36,42 @@ void writeLog2()
         outfile.close();
     }
 }
+
+void readLog(){
+	std::string xdr_data;
+	std::ifstream file(pTestFile, std::fstream::binary);
+	if (file)
+	{
+		file.seekg (0, file.end);
+		int length = file.tellg();
+		file.seekg (0, file.beg);
+		
+		xdr_data.reserve(length);
+		
+		int pos;
+		char buffer[10];
+		for(pos=0; pos<length&&file;pos+=10)
+		{
+			int step = (length-pos)>10?10:(length-pos);
+			file.read (buffer, step);
+			xdr_data.append(buffer, step);
+		}
+		printf("read file as follows:%s\n",xdr_data.c_str());
+	}
+	file.close();
+}
+
 int main(int argc, char* argv[])
 {
+    printf("-----write fstream.txt begin-----\n");
     writeLog();
     writeLog2();
-    printf("Hello World!\n");
+    printf("-----write fstream.txt end-----\n");
+    
+    printf("\n\n");
+    
+    printf("-----read fstream.txt begin-----\n");
+    readLog();
+    printf("-----read fstream.txt end-----\n");
     return 0;
 }
