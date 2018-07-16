@@ -1,4 +1,5 @@
 -- defines a factorial function 
+local fact
 function fact (n) 
   if n == 0 then 
    return 1 
