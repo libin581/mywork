@@ -1,3 +1,4 @@
+--闭包返回的是一个函数
 
 i=3
 
@@ -8,14 +9,16 @@ end
 
 function newCounter() 
   local i = 0 
-  return function ()
-    i = i + 1
-    return i
-    end
+  --return function ()
+  --  i = i + 1
+  --  return i
+  --  end
+  return aaa
 end 
 
  
-cc = newCounter()
+cc = newCounter()  --注意这里有括号，cc是newCounter的返回函数
+                   -- 没有括号相当于newCounter赋给cc
 print(cc())  --> 1 
 print(cc())  --> 2
 print(_G['i'])
