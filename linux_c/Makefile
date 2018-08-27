@@ -25,14 +25,23 @@ boost_thread_simple boost_thread_mutex\
 boost_thread_mutex_condition boost_thread_specific_ptr\
 regex_test fstream_test boost_shared_ptr boost_pool\
 boost_function boost_function_bind boost_signal_slot\
-testStr2time
+testStr2time heap priority_queue main_test\
+explicit_test callback_func
 
 
 objects=alarm.o callProcess.o client1.o server1.o ctrlc1.o \
 ctrlc2.o daemon.o daemonTest.o epollEcho.o fork1.o fork2.o fred.o \
 bill.o program.o hello.o a.out thread_pool_test.o thread_pool.o \
-testStr2time.o
+testStr2time.o heap.o priority_queue.o 
 
+callback_func:callback_func.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o callback_func  callback_func.cpp
+
+explicit_test:explicit_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o explicit_test  explicit_test.cpp
+
+main_test:main_test.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o main_test  main_test.cpp
 
 alarm:alarm.c
 	gcc -I$(INCLUDE) $(CFLAGS) -o alarm  alarm.c
@@ -193,6 +202,12 @@ time2loc:time2loc.c
 
 map_test:map_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o map_test map_test.cpp
+
+heap:heap.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o heap heap.cpp
+
+priority_queue:priority_queue.cpp
+	g++ -I$(INCLUDE) $(CFLAGS) -o priority_queue priority_queue.cpp
 
 algorithm_test:algorithm_test.cpp
 	g++ -I$(INCLUDE) $(CFLAGS) -o algorithm_test algorithm_test.cpp
