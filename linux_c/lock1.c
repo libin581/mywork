@@ -1,3 +1,5 @@
+//第一次调用成功
+//第二次因为文件已经存在了，调用失败
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>

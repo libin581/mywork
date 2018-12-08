@@ -51,17 +51,17 @@ int   str2str_divideStrAdd(              const char* pIn,
                 return -1;
         }
 
-	long long  llMulti = atol64(szMulti);
-	if(0 == llMulti)
-	{
-		return -1;
-	}
+        long long  llMulti = atol64(szMulti);
+        if(0 == llMulti)
+        {
+            return -1;
+        }
 
-	long long  llPin = atol64(pIn);
-	if(0 == llPin)
-	{
-		return 0;
-	}
+        long long  llPin = atol64(pIn);
+        if(0 == llPin)
+        {
+            return 0;
+        }
 
         if( 0 == (llPin % llMulti))
         {
@@ -71,6 +71,7 @@ int   str2str_divideStrAdd(              const char* pIn,
         {
                 snprintf( pOut, 64, "%lld", (llPin / llMulti + 1 ) );
         }
+          
         return 0;
 
 }
@@ -180,6 +181,62 @@ int main(){
     
     
     convert_vpmn_cell_id();
+    
+//----------------------------------------------------
+  
+  typedef int int32;
+  
+	int32	i = 0;
+	char	szCont[64] = {0};
+	char	szDest[64] = {0};
+
+	char pIn[30] = {0};
+    memcpy(pIn, "10230Ac0", 8);
+    char pOut[30] = {0};
+    
+	if ( NULL == pOut || strlen(pIn) != 8)
+	{
+		printf("error\n");
+	}
+
+    int tmp = 0;
+	for ( i = 0; i < 3; i++ )
+	{
+	    memcpy(szCont, pIn+i*2, 2);
+		szCont[3] = 0;
+        //toupper
+        printf("--%s\n", szCont);
+        sscanf(szCont, "%x", &tmp);
+        printf("==%d\n", tmp);
+		snprintf( szDest, 64, "%d",  tmp );
+		strcat( pOut, szDest );
+        strcat(pOut, ".");
+	}
+
+    memcpy(szCont, pIn+6, 2);
+    szCont[3] = 0;
+    printf("--%s\n", szCont);
+    sscanf(szCont, "%x", &tmp);
+    printf("==%d\n", tmp);
+    snprintf( szDest, 64, "%d",  tmp );
+	strcat( pOut, szDest );
+  
+    printf("%s-->%s", pIn, pOut);
+
+    printf("\n");
+    
+    
+    int INT_MAX = 2147483647;
+    char s[100] = {0};
+	sprintf(s, "%x", INT_MAX);
+	printf("%s\n", s); // 7fffffff
+ 
+	char str[100] = "7fffffff";
+	int ii = 0;
+	sscanf(str, "%x", &ii);
+	printf("%d\n", ii); // 2147483647
+
+    
     printf("\n");
 }
 
